@@ -5,6 +5,7 @@
 
 int main(int argc, char* argv[]){
 	OutlinedText outlinedText = { 0, };
+	char title[TEXT_SIZE] = { '\0', };
 	char items[ITEMS_COUNT][TEXT_SIZE] = { '\0', };
 	int i;
 	int count;
@@ -15,6 +16,9 @@ int main(int argc, char* argv[]){
 	printf("외곽선 문자열 출력 시작 위치 입력 (x, y)\n콘솔 창 크기 벗어나지 않도록 주의 : ");
 	scanf("%d %d", &startPositionXToPrint, &startPositionYToPrint);
 	getchar();
+	printf("제목 입력 (제목 없을 시, 엔터 입력) : ");
+	fgets(title, TEXT_SIZE, stdin);
+	title[strlen(title) - 1] = '\0';
 	printf("문자열 내용들 입력\n");
 	for (i = 0; i < count; i++){
 		printf("%d 번째 : ex) 문자열 : ", i + 1);
@@ -22,7 +26,7 @@ int main(int argc, char* argv[]){
 		items[i][strlen(items[i]) - 1] = '\0';
 	}
 	system("cls");
-	OutlinedText_Create(&outlinedText, items, count, startPositionXToPrint, startPositionYToPrint);
+	OutlinedText_Create(&outlinedText, title, items, count, startPositionXToPrint, startPositionYToPrint);
 	OutlinedText_Print(&outlinedText);
 	return 0;
 }

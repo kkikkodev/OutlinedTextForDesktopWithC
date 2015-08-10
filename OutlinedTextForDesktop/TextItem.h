@@ -9,5 +9,7 @@ typedef struct _textItem{
 }TextItem;
 
 void TextItem_Create(TextItem* textItem, char* text);
+const char* TextItem_GetText(TextItem textItem);
+const int TextItem_GetTotalByte(TextItem textItem);
 
 #endif

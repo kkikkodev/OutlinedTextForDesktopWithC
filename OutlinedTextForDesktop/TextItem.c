@@ -2,14 +2,14 @@
 #include "TextItem.h"
 
 void TextItem_Create(TextItem* textItem, char* text){
-	unsigned int i;
 	strcpy(textItem->text, text);
-	textItem->totalByte = 0;
-	for (i = 0; i < strlen(text); i++){
-		textItem->totalByte++;
-		if (!(text[i] >= 0 && text[i] < TEXT_SIZE)){
-			textItem->totalByte++;
-			i++;
-		}
-	}
+	textItem->totalByte = strlen(text);
+}
+
+const char* TextItem_GetText(TextItem textItem){
+	return textItem.text;
+}
+
+const int TextItem_GetTotalByte(TextItem textItem){
+	return textItem.totalByte;
 }
