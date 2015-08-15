@@ -6,8 +6,8 @@ void TextItem_Create(TextItem* textItem, char* text){
 	textItem->totalByte = strlen(text);
 }
 
-const char* TextItem_GetText(TextItem textItem){
-	return textItem.text;
+const char* TextItem_GetText(TextItem* textItem){
+	return textItem->text;
 }
 
 const int TextItem_GetTotalByte(TextItem textItem){

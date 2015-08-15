@@ -48,7 +48,7 @@ void OutlinedText_Print(OutlinedText* outlinedText){
 			printf(" ");
 		}
 
-		printf("%s", TextItem_GetText(outlinedText->title));
+		printf("%s", TextItem_GetText(&outlinedText->title));
 
 		// if top ouline count does not balance, print blank after title
 		if (topOutlineCount % 2){
@@ -62,7 +62,7 @@ void OutlinedText_Print(OutlinedText* outlinedText){
 	for (i = 0; i < outlinedText->height; i++){
 		CursorUtil_GotoXY(startPositionToPrint.x, startPositionToPrint.y++);
 		printf("жн");
-		printf("%s", TextItem_GetText(outlinedText->textItems[i]));
+		printf("%s", TextItem_GetText(&outlinedText->textItems[i]));
 		for (j = 0; j < outlinedText->width - TextItem_GetTotalByte(outlinedText->textItems[i]); j++){
 			printf(" ");
 		}
